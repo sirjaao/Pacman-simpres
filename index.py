@@ -204,9 +204,9 @@ for i, spawn in enumerate(ghost_spawn_points):
 pacman_x, pacman_y = 1 * block_size, 1 * block_size
 pacman_direction = 'right'
 pacman_rect = pygame.Rect(pacman_x, pacman_y, pacman_size, pacman_size)
+lives = 3
 
 clock = pygame.time.Clock()
-lives = 3
 
 while True:
     for event in pygame.event.get():
@@ -241,20 +241,26 @@ while True:
         pacman_rect.topleft = (pacman_x, pacman_y)
 
     screen.fill(BLACK)
+    
+    # Desenha o labirinto
     for y, row in enumerate(labirinto):
-     for x, cell in enumerate(row):
-         if cell == 1:
-            pygame.draw.rect(screen, BLUE, (x * block_size, y * block_size, block_size, block_size))  # Substitui WHITE por BLUE
+        for x, cell in enumerate(row):
+            if cell == 1:
+                pygame.draw.rect(screen, BLUE, (x * block_size, y * block_size, block_size, block_size))
 
+    # Desenha as bolinhas
+    for bolinha in bolinhas:
+        pygame.draw.circle(screen, WHITE, (bolinha[0] * block_size + block_size // 2, bolinha[1] * block_size + block_size // 2), block_size // 4)
+
+    # Desenha o Pacman
     draw_pacman(pacman_x, pacman_y, pacman_size, pacman_direction)
 
+    # Desenha os fantasmas
     for ghost in fantasmas:
         move_ghost(ghost, pacman_rect)
         draw_ghost(ghost['x'], ghost['y'], ghost['image'])
 
-    for bolinha in bolinhas:
-        pygame.draw.circle(screen, WHITE, (bolinha[0] * block_size + block_size // 2, bolinha[1] * block_size + block_size // 2), block_size // 4)
-
+    # Desenha as vidas
     draw_lives(lives)
 
     pygame.display.flip()
