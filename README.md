@@ -36,7 +36,7 @@ bash
 
 Copiar código
 
-python pacman.py
+python index.py
 
 # Capturas de Tela
 ![image](https://github.com/user-attachments/assets/a3ac8c01-b305-479c-b8fd-889b7de46342)
