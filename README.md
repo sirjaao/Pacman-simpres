@@ -20,7 +20,7 @@ bash
 
 Copiar código
 
-git clone https://github.com/usuario/pacman.git
+git clone https://github.com/sirjaao/Pacman-simpres.git
 
 # Instale as dependências:
 
@@ -38,7 +38,7 @@ Copiar código
 
 python pacman.py
 
-Capturas de Tela
+# Capturas de Tela
 ![image](https://github.com/user-attachments/assets/a3ac8c01-b305-479c-b8fd-889b7de46342)
 
 
